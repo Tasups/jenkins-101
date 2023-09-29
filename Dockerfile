@@ -11,11 +11,11 @@ RUN apt-get update && apt-get install -y docker-ce-cli
 USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.3 docker-workflow:1.28"
 
-FROM python:3
+# FROM python:3
 
-RUN pip install --no-cache-dir --upgrade pip && \
-    pip install --no-cache-dir nibabel pydicom matplotlib pillow med2image
-    # Note: we had to merge the two "pip install" package lists here, otherwise
-    # the last "pip install" command in the OP may break dependency resolution…
+# RUN pip install --no-cache-dir --upgrade pip && \
+#    pip install --no-cache-dir nibabel pydicom matplotlib pillow med2image
+#    # Note: we had to merge the two "pip install" package lists here, otherwise
+#    # the last "pip install" command in the OP may break dependency resolution…
 
-CMD ["cat", "/etc/os-release"]
+# CMD ["cat", "/etc/os-release"]
